@@ -107,6 +107,12 @@ target_include_directories(
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/src>
 )
 
+target_compile_definitions(
+    HalideIR
+    PUBLIC
+    $<BUILD_INTERFACE:Halide_EXPORTS>
+)
+
 hunter_add_package(dmlc-core)
 find_package(dmlc CONFIG REQUIRED)
 target_link_libraries(HalideIR PUBLIC dmlc::dmlc)
